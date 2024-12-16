@@ -16,4 +16,4 @@ gas_reports = ["", ""]
 memory_limit = 67108864
 
 [rpc]
-base = "https://eth-sepolia.g.alchemy.com/v2/E5ZnSDWTDbGvEwvESZ580b55OPkwa6x1"
+base = "https://base-sepolia.g.alchemy.com/v2/<YOUR_API_KEY>"

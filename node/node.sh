@@ -1,1 +1,1 @@
-docker run -d --name chainlink-node -p 6688:6688 -p 8000:8000 -e ROOT=/chainlink -e ETH_CHAIN_ID=84532 -e LINK_CONTRACT_ADDRESS=0xE4aB69C077896252FAFBD49EFD26B5D171A32410 -e MIN_OUTGOING_CONFIRMATIONS=1 -e CHAINLINK_TLS_PORT=0 -e LOG_LEVEL=debug -v ~/.chainlink:/chainlink smartcontract/chainlink:latest local npx chainlink
+docker-compose up -d

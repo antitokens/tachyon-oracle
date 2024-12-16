@@ -1,0 +1,23 @@
+# config.toml
+[Database]
+URL = "postgresql://postgres:chainlink@postgres:5432/chainlink_dev?sslmode=disable"
+
+[Explorer]
+Enabled = false
+
+[WebServer]
+HTTPPort = 6688
+SecureCookies = false
+AllowOrigins = "*"
+
+[[EVM]]
+ChainID = '84532'
+Enabled = true
+BlockBackfillDepth = 10
+FinalityDepth = 50
+LogPollInterval = "15s"
+
+[[EVM.Nodes]]
+Name = 'Base Sepolia'
+WSURL = 'wss://base-sepolia.g.alchemy.com/v2/<YOUR_API_KEY>'
+HTTPURL = 'https://base-sepolia.g.alchemy.com/v2/<YOUR_API_KEY>'

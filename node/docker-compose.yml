@@ -1,0 +1,40 @@
+services:
+  postgres:
+    image: postgres:14
+    platform: linux/arm64/v8
+    environment:
+      POSTGRES_PASSWORD: chainlink
+      POSTGRES_USER: postgres
+      POSTGRES_DB: chainlink_dev
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  delta-adapter:
+    build: ../adapters/antipro-delta-feed
+    ports:
+      - "8080:8080"
+
+  chainlink:
+    user: root
+    image: smartcontract/chainlink:1.13.0
+    platform: linux/amd64
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+      - delta-adapter
+    command: node start -a /chainlink/api -p /chainlink/password
+    ports:
+      - "6688:6688"
+    volumes:
+      - ./api:/chainlink/api
+      - ./password:/chainlink/password
+      - chainlink-data:/chainlink
+      - ./wallet:/chainlink/wallet
+
+volumes:
+  pg-data:
+  chainlink-data:
+

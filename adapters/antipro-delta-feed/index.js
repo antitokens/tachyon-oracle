@@ -29,4 +29,4 @@ app.post("/", async (req, res) => {
   }
 });
 
-app.listen(8080, () => console.log("CHAINLINK_ADAPTER_ON_PORT_8080"));
+app.listen(8080, () => console.log("Antitoken Delta Feed Running on Port 8080"));

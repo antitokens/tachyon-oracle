@@ -13,8 +13,19 @@ docs/
 # Dotenv file
 .env
 **/.env
+**/secrets.toml
+**/config.toml
+forge.toml
 
+# Keypair(s)/Password(s)
+node/wallet/key.json
+node/api
+node/password
+
+# Packages
 node_modules
-.DS_store
 **/node_modules
+
+# Trash
+.DS_store
 **/.DS_Store
